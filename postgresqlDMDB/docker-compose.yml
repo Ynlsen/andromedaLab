@@ -1,0 +1,13 @@
+services:
+  postgresDMDB:
+    image: postgres
+    container_name: postgresDMDB
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./app:/app
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  
