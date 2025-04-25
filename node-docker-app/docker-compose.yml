@@ -1,14 +1,13 @@
 services:
   node:
     build: .
-    ports:
-      - '3000:3000'
     container_name: node
-    environment:
-      - PORT=3000
+    labels:
+      traefik.enable: true
+      traefik.http.routers.node.rule: Host(`node.yniederer.ch`)
     networks:
-      - nodetest
+      - node
 networks:
-  nodetest:
-    name: nodetest
+  node:
+    name: node
     external: true
