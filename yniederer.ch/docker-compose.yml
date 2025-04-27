@@ -1,0 +1,15 @@
+services:
+  yniederer:
+    image: nginx:alpine
+    container_name: yniederer
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    labels:
+      traefik.enable: true
+      traefik.http.routers.yniederer.rule: Host(`yniederer.ch`)
+    networks:
+      - yniederer
+networks:
+  yniederer:
+    name: yniederer
+    external: true     

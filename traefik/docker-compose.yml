@@ -11,6 +11,9 @@ services:
       - ./traefik.yml:/etc/traefik/traefik.yml:ro
     networks:
       - node
+      - yniederer
 networks:
   node:
     name: node
+  yniederer:
+    name: yniederer
