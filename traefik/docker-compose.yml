@@ -12,8 +12,11 @@ services:
     networks:
       - node
       - yniederer
+      - alpina
 networks:
   node:
     name: node
   yniederer:
     name: yniederer
+  alpina:
+    name: alpina
