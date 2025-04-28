@@ -1,0 +1,16 @@
+services:
+  alpina:
+    image: nginx:alpine
+    container_name: alpina
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    env_file: ".env"
+    labels:
+      traefik.enable: true
+      traefik.http.routers.alpina.rule: Host(`${DOMAIN}`)
+    networks:
+      - alpina
+networks:
+  alpina:
+    name: alpina
+    external: true   
