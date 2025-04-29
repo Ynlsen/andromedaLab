@@ -7,6 +7,8 @@ services:
     labels:
       traefik.enable: true
       traefik.http.routers.yniederer.rule: Host(`yniederer.ch`)
+      traefik.http.routers.yniederer.tls: true
+      traefik.http.routers.yniederer.tls.certresolver: letsencrypt
     networks:
       - yniederer
 networks:
