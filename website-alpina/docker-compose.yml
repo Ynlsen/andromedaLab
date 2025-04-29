@@ -4,6 +4,7 @@ services:
     container_name: alpina
     volumes:
       - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./assets/:/usr/share/nginx/html/assets/:ro
     env_file: ".env"
     labels:
       traefik.enable: true
