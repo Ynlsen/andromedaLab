@@ -1,3 +1,4 @@
+#Data lost due to heavy rework :(
 services:
   postgresDMDB:
     image: postgres
