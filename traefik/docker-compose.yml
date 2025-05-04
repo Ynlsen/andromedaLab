@@ -15,6 +15,11 @@ services:
       - yniederer
       - alpina
       - jellyfin
+      - jellyseerr
+      - radarr
+      - qbittorrent
+      - prowlarr
+      - sonarr
 networks:
   node:
     name: node
@@ -24,3 +29,13 @@ networks:
     name: alpina
   jellyfin:
     name: jellyfin
+  jellyseerr:
+    name: jellyseerr
+  radarr:
+    name: radarr
+  qbittorrent:
+    name: qbittorrent
+  prowlarr:
+    name: prowlarr
+  sonarr:
+    name: sonarr
