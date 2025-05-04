@@ -1,10 +1,11 @@
 services:
   jellyfin:
     image: jellyfin/jellyfin
+    container_name: jellyfin
     volumes:
-      - ~/data/jellyfin/media:/media
-      - ~/data/jellyfin/cache:/cache
-      - ./config:/config
+      - ../../data/jellyfin/media:/media
+      - ../../data/jellyfin/cache:/cache
+      - ./jellyfin/config:/config
     labels:
       traefik.enable: true
       traefik.http.routers.jellyfin.rule: Host(`jellyfin.yniederer.ch`)
@@ -13,7 +14,102 @@ services:
       traefik.http.services.jellyfin.loadBalancer.server.port: 8096
     networks:
       - jellyfin
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr
+    container_name: jellyseerr
+    volumes:
+      - ./jellyseerr/config:/app/config
+    labels:
+      traefik.enable: true
+      traefik.http.routers.jellyseerr.rule: Host(`jellyseerr.yniederer.ch`)
+      traefik.http.routers.jellyseerr.tls: true
+      traefik.http.routers.jellyseerr.tls.certresolver: letsencrypt
+      traefik.http.services.jellyseerr.loadbalancer.server.port: 5055
+    networks:
+      - jellyseerr
+
+  radarr:
+    image: lscr.io/linuxserver/radarr
+    container_name: radarr
+    volumes:
+      - ../../data/jellyfin/media/movies:/movies
+      - ./radarr/config:/config
+      - ../../data/qbittorrent/downloads:/downloads
+    restart: always
+    labels:
+      traefik.enable: true
+      traefik.http.routers.radarr.rule: Host(`radarr.yniederer.ch`)
+      traefik.http.routers.radarr.tls: true
+      traefik.http.routers.radarr.tls.certresolver: letsencrypt
+      traefik.http.services.radarr.loadbalancer.server.port: 7878
+    networks:
+      - radarr
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      WEBUI_PORT: 8080
+      TORRENTING_PORT: 6881
+    volumes:
+      - ./qbittorrent/config:/config
+      - ../../data/qbittorrent/downloads:/downloads
+    labels:
+      traefik.enable: true      
+      traefik.http.routers.qbittorrent.rule: Host(`qbittorrent.yniederer.ch`)
+      traefik.http.routers.qbittorrent.tls: true
+      traefik.http.routers.qbittorrent.tls.certresolver: letsencrypt
+      traefik.http.services.qbittorrent.loadbalancer.server.port: 8080
+    networks:
+      - qbittorrent
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr
+    container_name: prowlarr
+    volumes:
+      - ./prowlarr/config:/config
+    labels:
+      traefik.enable: true
+      traefik.http.routers.prowlarr.rule: Host(`prowlarr.yniederer.ch`)
+      traefik.http.routers.prowlarr.tls: true
+      traefik.http.routers.prowlarr.tls.certresolver: letsencrypt
+      traefik.http.services.prowlarr.loadbalancer.server.port: 9696
+    networks:
+      - prowlarr
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr
+    container_name: sonarr
+    volumes:
+      - ../../data/jellyfin/media/tv:/tv
+      - ./sonarr/config:/config
+      - ../../data/qbittorrent/downloads:/downloads
+    labels:
+      traefik.enable: true
+      traefik.http.routers.sonarr.rule: Host(`sonarr.yniederer.ch`)
+      traefik.http.routers.sonarr.tls: true
+      traefik.http.routers.sonarr.tls.certresolver: letsencrypt
+      traefik.http.services.sonarr.loadbalancer.server.port: 8989
+    networks:
+      - sonarr
+
 networks:
   jellyfin:
     name: jellyfin
+    external: true
+  jellyseerr:
+    name: jellyseerr
+    external: true
+  radarr:
+    name: radarr
+    external: true
+  qbittorrent:
+    name: qbittorrent
+    external: true
+  prowlarr:
+    name: prowlarr
+    external: true
+  sonarr:
+    name: sonarr
     external: true
