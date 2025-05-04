@@ -1,0 +1,19 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    volumes:
+      - ~/data/jellyfin/media:/media
+      - ~/data/jellyfin/cache:/cache
+      - ./config:/config
+    labels:
+      traefik.enable: true
+      traefik.http.routers.jellyfin.rule: Host(`jellyfin.yniederer.ch`)
+      traefik.http.routers.jellyfin.tls: true
+      traefik.http.routers.jellyfin.tls.certresolver: letsencrypt
+      traefik.http.services.jellyfin.loadBalancer.server.port: 8096
+    networks:
+      - jellyfin
+networks:
+  jellyfin:
+    name: jellyfin
+    external: true

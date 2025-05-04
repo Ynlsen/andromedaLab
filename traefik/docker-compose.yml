@@ -14,6 +14,7 @@ services:
       - node
       - yniederer
       - alpina
+      - jellyfin
 networks:
   node:
     name: node
@@ -21,3 +22,5 @@ networks:
     name: yniederer
   alpina:
     name: alpina
+  jellyfin:
+    name: jellyfin
