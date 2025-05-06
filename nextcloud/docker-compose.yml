@@ -31,7 +31,7 @@ services:
       MYSQL_DATABASE: nextclouddb
       MYSQL_USER: nextcloud
       MYSQL_PASSWORD: ${PASSWORD}
-      MYSQL_HOST: db
+      MYSQL_HOST: nextclouddb
     networks:
       - local
       - nextcloud
