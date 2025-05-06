@@ -20,6 +20,7 @@ services:
       - qbittorrent
       - prowlarr
       - sonarr
+      - nextcloud
 networks:
   node:
     name: node
@@ -39,3 +40,5 @@ networks:
     name: prowlarr
   sonarr:
     name: sonarr
+  nextcloud:
+    name: nextcloud

@@ -1,0 +1,49 @@
+services:
+  nextclouddb:
+    image: mariadb
+    container_name: nextclouddb
+    volumes:
+      - ../../data/nextcloud/database:/media/var/lib/mysql
+    env_file: ".env"
+    environment:
+      MYSQL_DATABASE: nextclouddb
+      MYSQL_USER: nextcloud
+      MYSQL_PASSWORD: ${PASSWORD}
+      MYSQL_RANDOM_ROOT_PASSWORD: true
+    networks:
+      - local
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    networks:
+      - local
+
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    volumes:
+      - ../../data/nextcloud/html:/var/www/html
+      - ../../data/nextcloud/data:/var/www/html/data
+      - ../../data/nextcloud/apps:/var/www/html/custom_apps
+      - ../../data/nextcloud/config:/var/www/html/config
+    environment:
+      MYSQL_DATABASE: nextclouddb
+      MYSQL_USER: nextcloud
+      MYSQL_PASSWORD: ${PASSWORD}
+      MYSQL_HOST: db
+    networks:
+      - local
+      - nextcloud
+    lables:
+      traefik.enable: true
+      traefik.http.routers.nextcloud.rule: Host(`nextcloud.yniederer.ch`)
+      traefik.http.routers.nextcloud.tls: true
+      traefik.http.routers.nextcloud.tls.certresolver: letsencrypt
+      traefik.docker.network: nextcloud
+
+networks:
+  nextcloud:
+   name: nextcloud
+   external: true
+  local:
