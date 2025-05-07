@@ -24,9 +24,6 @@ services:
     container_name: nextcloud
     volumes:
       - ../../data/nextcloud/html:/var/www/html
-      - ../../data/nextcloud/data:/var/www/html/data
-      - ../../data/nextcloud/apps:/var/www/html/custom_apps
-      - ../../data/nextcloud/config:/var/www/html/config
     environment:
       MYSQL_DATABASE: nextclouddb
       MYSQL_USER: nextcloud
