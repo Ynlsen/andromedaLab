@@ -29,6 +29,8 @@ services:
       MYSQL_USER: nextcloud
       MYSQL_PASSWORD: ${PASSWORD}
       MYSQL_HOST: nextclouddb
+    depends_on:
+      - nextclouddb
     networks:
       - local
       - nextcloud
