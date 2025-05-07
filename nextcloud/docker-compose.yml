@@ -1,15 +1,17 @@
 services:
   nextclouddb:
-    image: mariadb
+    image: mariadb:lts
     container_name: nextclouddb
     volumes:
       - ../../data/nextcloud/database:/media/var/lib/mysql
-    env_file: ".env"
     environment:
       MYSQL_DATABASE: nextclouddb
       MYSQL_USER: nextcloud
       MYSQL_PASSWORD: ${PASSWORD}
       MYSQL_ROOT_PASSWORD: ${PASSWORD}
+      MARIADB_DATABASE: nextclouddb
+      MARIADB_USER: nextcloud
+      MARIADB_AUTO_UPGRADE: 1
     networks:
       - local
 
@@ -24,7 +26,6 @@ services:
     container_name: nextcloud
     volumes:
       - ../../data/nextcloud/html:/var/www/html
-    env_file: ".env"
     environment:
       MYSQL_DATABASE: nextclouddb
       MYSQL_USER: nextcloud
