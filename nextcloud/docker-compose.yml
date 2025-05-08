@@ -3,14 +3,12 @@ services:
     image: mariadb:lts
     container_name: nextclouddb
     volumes:
-      - ../../data/nextcloud/database:/media/var/lib/mysql
+      - ../../data/nextcloud/database:/var/lib/mysql
     environment:
       MYSQL_DATABASE: nextclouddb
       MYSQL_USER: nextcloud
       MYSQL_PASSWORD: ${PASSWORD}
       MYSQL_ROOT_PASSWORD: ${PASSWORD}
-      MARIADB_DATABASE: nextclouddb
-      MARIADB_USER: nextcloud
       MARIADB_AUTO_UPGRADE: 1
     networks:
       - local
