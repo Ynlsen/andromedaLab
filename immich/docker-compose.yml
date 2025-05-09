@@ -81,6 +81,7 @@ networks:
   immich:
     name: immich
     external: true
+  local:
 
 volumes:
   model-cache:
