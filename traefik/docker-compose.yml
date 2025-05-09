@@ -21,6 +21,7 @@ services:
       - prowlarr
       - sonarr
       - nextcloud
+      - immich
 networks:
   node:
     name: node
@@ -42,3 +43,5 @@ networks:
     name: sonarr
   nextcloud:
     name: nextcloud
+  immich:
+    name: immich
