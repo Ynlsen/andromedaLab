@@ -1,9 +1,9 @@
 services:
   yniederer:
-    image: nginx:alpine
+    build:
+      context: ../../yniederer.ch
+      dockerfile: ../andromedalab-config/yniederer.ch/Dockerfile
     container_name: yniederer
-    volumes:
-      - ./index.html:/usr/share/nginx/html/index.html:ro
     labels:
       traefik.enable: true
       traefik.http.routers.yniederer.rule: Host(`yniederer.ch`)
@@ -14,4 +14,4 @@ services:
 networks:
   yniederer:
     name: yniederer
-    external: true     
+    external: true
