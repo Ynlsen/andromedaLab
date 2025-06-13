@@ -36,7 +36,6 @@ services:
       - ../../data/jellyfin/media/movies:/movies
       - ./radarr/config:/config
       - ../../data/qbittorrent/downloads:/downloads
-    restart: always
     labels:
       traefik.enable: true
       traefik.http.routers.radarr.rule: Host(`radarr.yniederer.ch`)
