@@ -17,6 +17,7 @@ The VM hosts the following services:
 - **Immich** (`immich/`): Photo backup/management
 - **Jellyfin** (`jellyfin/`): Media streaming
 - **Traefik** (`traefik/`): Reverse proxy
+- **Vaultwarden** (`vaultwarden/`): Password manager
 - **Minecraft** (`minecraft/`): Minecraft server
 - **Website Alpina** (`website-alpina/`): Someone else's website
 - **PostgreSQL** (`postgresqlDMDB/`): Database
