@@ -1,0 +1,18 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    volumes:
+      - ../../data/vaultwarden:/data
+    labels:
+      traefik.enable: true
+      traefik.http.routers.vaultwarden.rule: Host(`vaultwarden.yniederer.ch`)
+      traefik.http.routers.vaultwarden.tls: true
+      traefik.http.routers.vaultwarden.tls.certresolver: letsencrypt
+    networks:
+      - vaultwarden
+
+networks:
+  vaultwarden:
+    name: vaultwarden
+    external: true
