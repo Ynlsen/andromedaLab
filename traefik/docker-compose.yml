@@ -23,6 +23,7 @@ services:
       - nextcloud
       - immich
       - vaultwarden
+      - open-webui
 
 networks:
   node:
@@ -49,3 +50,5 @@ networks:
     name: immich
   vaultwarden:
     name: vaultwarden
+  open-webui:
+    name: open-webui
