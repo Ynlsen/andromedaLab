@@ -1,0 +1,23 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:latest
+    container_name: open-webui
+    environment:
+      OPENAI_API_BASE_URL: https://litellm.sph-prod.ethz.ch/v1
+      ENABLE_OPENAI_API: true
+    env_file:
+      - .env
+    volumes:
+      - ../../data/open-webui:/app/backend/data
+    labels:
+      traefik.enable: true
+      traefik.http.routers.open-webui.rule: Host(`chat.yniederer.ch`)
+      traefik.http.routers.open-webui.tls: true
+      traefik.http.routers.open-webui.tls.certresolver: letsencrypt
+    networks:
+      - open-webui
+
+networks:
+  open-webui:
+    name: open-webui
+    external: true
