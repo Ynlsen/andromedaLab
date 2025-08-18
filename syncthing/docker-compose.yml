@@ -1,0 +1,19 @@
+services:
+  syncthing:
+    image: syncthing/syncthing:latest
+    container_name: syncthing
+    volumes:
+      - ../../data/syncthing:/var/syncthing
+    labels:
+      traefik.enable: true
+      traefik.http.routers.syncthing.rule: Host(`syncthing.yniederer.ch`)
+      traefik.http.routers.syncthing.tls: true
+      traefik.http.routers.syncthing.tls.certresolver: letsencrypt
+      traefik.http.services.syncthing.loadbalancer.server.port: 8384
+    networks:
+      - syncthing
+
+networks:
+  syncthing:
+    name: syncthing
+    external: true
