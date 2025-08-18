@@ -24,6 +24,7 @@ services:
       - immich
       - vaultwarden
       - open-webui
+      - syncthing
 
 networks:
   node:
@@ -52,3 +53,5 @@ networks:
     name: vaultwarden
   open-webui:
     name: open-webui
+  syncthing:
+    name: syncthing
