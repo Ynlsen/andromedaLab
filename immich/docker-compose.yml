@@ -17,6 +17,7 @@ services:
       DB_PASSWORD: ${PASSWORD}
     volumes:
       - ../../data/immich/library:/usr/src/app/upload
+      - ../../data/immich/external:/usr/src/app/external
     depends_on:
       - redis
       - database
