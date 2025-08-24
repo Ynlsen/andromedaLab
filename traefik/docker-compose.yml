@@ -25,6 +25,7 @@ services:
       - vaultwarden
       - open-webui
       - syncthing
+      - radicale
 
 networks:
   node:
@@ -55,3 +56,5 @@ networks:
     name: open-webui
   syncthing:
     name: syncthing
+  radicale:
+    name: radicale
