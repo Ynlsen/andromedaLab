@@ -1,0 +1,19 @@
+services:
+  radicale:
+    image: tomsquest/docker-radicale:latest
+    container_name: radicale
+    volumes:
+      - ../../data/radicale:/data
+      - ./config:/config
+    labels:
+      traefik.enable: true
+      traefik.http.routers.radicale.rule: Host(`radicale.yniederer.ch`)
+      traefik.http.routers.radicale.tls: true
+      traefik.http.routers.radicale.tls.certresolver: letsencrypt
+    networks:
+      - radicale
+
+networks:
+  radicale:
+    name: radicale
+    external: true
