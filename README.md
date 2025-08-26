@@ -22,3 +22,7 @@ The VM hosts the following services:
 - **Website Alpina** (`website-alpina/`): Someone else's website
 - **PostgreSQL** (`postgresqlDMDB/`): Database
 - **Node Docker App** (`node-docker-app/`): Node testing
+- **Matrix** (`matrix/`): Messaging server
+- **Radicale** (`radicale/`): Calendar/Todo list
+- **Syncthing** (`syncthing/`): File synchronization
+- **Open WebUI** (`open-webui/`): AI chat interface
