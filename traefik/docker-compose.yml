@@ -26,6 +26,7 @@ services:
       - open-webui
       - syncthing
       - radicale
+      - tuwunel
 
 networks:
   node:
@@ -58,3 +59,5 @@ networks:
     name: syncthing
   radicale:
     name: radicale
+  tuwunel:
+    name: tuwunel
