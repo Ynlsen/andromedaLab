@@ -7,7 +7,7 @@ services:
     environment:
       TUWUNEL_DATABASE_PATH: /var/lib/tuwunel
       TUWUNEL_ADDRESS: 0.0.0.0
-      TUWUNEL_SERVER_NAME: matrix.yniederer.ch
+      TUWUNEL_SERVER_NAME: yniederer.ch
       TUWUNEL_WELL_KNOWN: |
         {
         client=https://matrix.yniederer.ch,
