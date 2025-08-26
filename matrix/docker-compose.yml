@@ -6,6 +6,11 @@ services:
       - ../../data/tuwunel:/var/lib/tuwunel
     environment:
       TUWUNEL_SERVER_NAME: matrix.yniederer.ch
+      TUWUNEL_WELL_KNOWN: |
+        {
+        client=https://matrix.yniederer.ch,
+        server=matrix.yniederer.ch:443
+        }
     labels:
       traefik.enable: true
       traefik.http.routers.tuwunel.rule: Host(`matrix.yniederer.ch`)
