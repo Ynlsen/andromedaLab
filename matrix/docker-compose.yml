@@ -1,0 +1,20 @@
+services:
+  tuwunel:
+    image: jevolk/tuwunel:latest
+    container_name: tuwunel
+    volumes:
+      - ../../data/tuwunel:/var/lib/tuwunel
+    environment:
+      TUWUNEL_SERVER_NAME: matrix.yniederer.ch
+    labels:
+      traefik.enable: true
+      traefik.http.routers.tuwunel.rule: Host(`matrix.yniederer.ch`)
+      traefik.http.routers.tuwunel.tls: true
+      traefik.http.routers.tuwunel.tls.certresolver: letsencrypt
+    networks:
+      - tuwunel
+
+networks:
+  tuwunel:
+    name: tuwunel
+    external: true
