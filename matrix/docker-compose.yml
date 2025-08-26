@@ -8,7 +8,6 @@ services:
       TUWUNEL_DATABASE_PATH: /var/lib/tuwunel
       TUWUNEL_ADDRESS: 0.0.0.0
       TUWUNEL_SERVER_NAME: yniederer.ch
-      TUWUNEL_ALLOW_REGISTRATION: true
     labels:
       traefik.enable: true
       traefik.http.routers.tuwunel.rule: Host(`matrix.yniederer.ch`)
