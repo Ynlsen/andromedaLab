@@ -27,6 +27,7 @@ services:
       - syncthing
       - radicale
       - tuwunel
+      - tier
 
 networks:
   node:
@@ -61,3 +62,5 @@ networks:
     name: radicale
   tuwunel:
     name: tuwunel
+  tier:
+    name: tier

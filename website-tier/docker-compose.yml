@@ -1,0 +1,18 @@
+services:
+  tier:
+    image: nginx:alpine
+    container_name: tier
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+    env_file: ".env"
+    labels:
+      traefik.enable: true
+      traefik.http.routers.tier.rule: Host(`${DOMAIN}`)
+      traefik.http.routers.tier.tls: true
+      traefik.http.routers.tier.tls.certresolver: letsencrypt
+    networks:
+      - tier
+networks:
+  tier:
+    name: tier
+    external: true
