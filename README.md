@@ -20,6 +20,7 @@ The VM hosts the following services:
 - **Vaultwarden** (`vaultwarden/`): Password manager
 - **Minecraft** (`minecraft/`): Minecraft server
 - **Website Alpina** (`website-alpina/`): Someone else's website
+- **Website Tier** (`website-tier/`): Someone else's website
 - **PostgreSQL** (`postgresqlDMDB/`): Database
 - **Node Docker App** (`node-docker-app/`): Node testing
 - **Matrix** (`matrix/`): Messaging server
