@@ -1,6 +1,8 @@
-**
-!docker-compose.yml
-!traefik.yml
-!README.md
-!Dockerfile
-!config
+*
+
+!**/
+
+!**/docker-compose.yml
+!**/traefik.yml
+!**/README.md
+!**/Dockerfile

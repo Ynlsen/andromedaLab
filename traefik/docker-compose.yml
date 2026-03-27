@@ -28,6 +28,7 @@ services:
       - radicale
       - tuwunel
       - tier
+      - atuin
 
 networks:
   node:
@@ -64,3 +65,5 @@ networks:
     name: tuwunel
   tier:
     name: tier
+  atuin:
+    name: atuin
