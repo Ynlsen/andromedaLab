@@ -21,8 +21,6 @@ The VM hosts the following services:
 - **Minecraft** (`minecraft/`): Minecraft server
 - **Website Alpina** (`website-alpina/`): Someone else's website
 - **Website Tier** (`website-tier/`): Someone else's website
-- **PostgreSQL** (`postgresqlDMDB/`): Database
-- **Node Docker App** (`node-docker-app/`): Node testing
 - **Matrix** (`matrix/`): Messaging server
 - **Radicale** (`radicale/`): Calendar/Todo list
 - **Syncthing** (`syncthing/`): File synchronization
