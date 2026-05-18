@@ -26,3 +26,4 @@ The VM hosts the following services:
 - **Syncthing** (`syncthing/`): File synchronization
 - **Open WebUI** (`open-webui/`): AI chat interface
 - **Atuin** (`atuin/`): Shell history sync and search
+- **Renovate** (`renovate/`): Automated dependency updates
