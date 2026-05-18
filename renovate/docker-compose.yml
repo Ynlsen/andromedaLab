@@ -1,0 +1,11 @@
+services:
+  renovate:
+    image: ghcr.io/renovatebot/renovate:latest
+    container_name: renovate
+    volumes:
+      - ../../data/renovate:/tmp/renovate
+    env_file: ".env"
+    environment:
+      RENOVATE_PLATFORM: github
+      RENOVATE_REPOSITORIES: Ynlsen/yniederer.ch
+      LOG_LEVEL: info
