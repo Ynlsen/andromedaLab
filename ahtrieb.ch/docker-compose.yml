@@ -1,0 +1,18 @@
+services:
+  ahtrieb:
+    image: nginx:alpine
+    container_name: ahtrieb
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+    labels:
+      traefik.enable: true
+      traefik.http.routers.ahtrieb.rule: Host(`ahtrieb.ch`)
+      traefik.http.routers.ahtrieb.tls: true
+      traefik.http.routers.ahtrieb.tls.certresolver: letsencrypt
+    networks:
+      - ahtrieb
+
+networks:
+  ahtrieb:
+    name: ahtrieb
+    external: true

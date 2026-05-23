@@ -29,6 +29,7 @@ services:
       - tuwunel
       - tier
       - atuin
+      - ahtrieb
 
 networks:
   node:
@@ -67,3 +68,5 @@ networks:
     name: tier
   atuin:
     name: atuin
+  ahtrieb:
+    name: ahtrieb
