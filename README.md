@@ -27,3 +27,4 @@ The VM hosts the following services:
 - **Open WebUI** (`open-webui/`): AI chat interface
 - **Atuin** (`atuin/`): Shell history sync and search
 - **Renovate** (`renovate/`): Automated dependency updates
+- **Ahtrieb** (`ahtrieb.ch/`): Website for my game engine
