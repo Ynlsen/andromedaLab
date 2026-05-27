@@ -1,9 +1,9 @@
 services:
   ahtrieb:
-    image: nginx:alpine
+    build:
+      context: ../../ahtrieb.ch
+      dockerfile: ../andromedalab-config/ahtrieb.ch/Dockerfile
     container_name: ahtrieb
-    volumes:
-      - ./public:/usr/share/nginx/html:ro
     labels:
       traefik.enable: true
       traefik.http.routers.ahtrieb.rule: Host(`ahtrieb.ch`)
